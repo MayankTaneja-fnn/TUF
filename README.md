@@ -1,6 +1,6 @@
-# 📅 TUF+ DSA Interactive Wall Calendar
+# 📅 TUF Interactive Wall Calendar
 
-A high-performance, visually stunning monthly calendar designed specifically for tracking **DSA (Data Structures & Algorithms)** study goals. It simulates the aesthetic of a physical wall calendar with modern, interactive digital features and a fully responsive interface.
+A high-performance, visually stunning monthly calendar designed for study goals. It simulates the aesthetic of a physical wall calendar with modern, interactive digital features and a fully responsive interface.
 
 ![Initial View](./screenshots/initial_view.png)
 
