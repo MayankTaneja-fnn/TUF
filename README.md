@@ -81,5 +81,8 @@ Elevate your schedule with a versatile tagging system designed for visual tracki
    npm run build
    ```
 
+
+Deployed Link - https://tuf-alpha.vercel.app/
+
 ---
 
