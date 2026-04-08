@@ -387,6 +387,49 @@ body {
   color: var(--text-muted);
 }
 
+.notes__stats-container {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 4px;
+}
+
+.notes__progress-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: #f8fafc;
+  padding: 8px 12px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+}
+
+.notes__progress-bar {
+  flex: 1;
+  height: 6px;
+  background: #e2e8f0;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.notes__progress-fill {
+  height: 100%;
+  background: var(--primary);
+  border-radius: 10px;
+  transition: width 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+  box-shadow: 0 0 8px color-mix(in srgb, var(--primary) 40%, transparent);
+}
+
+.notes__progress-label {
+  font-size: 0.72rem;
+  font-weight: 800;
+  color: var(--primary-dark);
+  white-space: nowrap;
+  min-width: 60px;
+  text-align: right;
+}
+
+
 .notes__scroll-area {
   flex: 1;
   overflow-y: auto;
@@ -409,14 +452,51 @@ body {
   display: flex;
   flex-direction: column;
   gap: 8px;
-  transition: border-color 0.2s;
+  transition: all 0.3s ease;
 }
 .saved-note:hover { border-color: #cbd5e1; }
+
+.saved-note--completed {
+  opacity: 0.6;
+  background: #f1f5f9;
+}
+
+.saved-note--completed .saved-note__text {
+  text-decoration: line-through;
+  color: #94a3b8;
+}
 
 .saved-note__header {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
+}
+
+.saved-note__status {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.saved-note__toggle {
+  background: none;
+  border: none;
+  color: #94a3b8;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.saved-note__toggle:hover {
+  color: var(--primary);
+  transform: scale(1.1);
+}
+
+.saved-note__toggle--active {
+  color: #10b981;
 }
 
 .saved-note__date {
@@ -449,6 +529,7 @@ body {
   line-height: 1.5;
   white-space: pre-wrap;
 }
+
 
 .grid-section { display: flex; flex-direction: column; gap: 20px; }
 

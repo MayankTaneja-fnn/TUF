@@ -1,6 +1,6 @@
 import React from 'react';
 import { format, isSameDay } from 'date-fns';
-import { X, Save } from 'lucide-react';
+import { X, Save, CheckCircle2, Circle } from 'lucide-react';
 import type { SavedNote } from '../types/calendar';
 
 interface NotesSidebarProps {
@@ -33,6 +33,7 @@ const NotesSidebar: React.FC<NotesSidebarProps> = ({
       text: notes.trim(),
       dateLabel: getDateLabel(),
       createdAt: Date.now(),
+      completed: false,
     };
     setSavedNotes((prev) => [newNote, ...prev]);
     setNotes(''); 
@@ -40,6 +41,10 @@ const NotesSidebar: React.FC<NotesSidebarProps> = ({
 
   const handleDeleteNote = (id: string) => {
     setSavedNotes((prev) => prev.filter((n) => n.id !== id));
+  };
+  
+  const handleToggleComplete = (id: string) => {
+    setSavedNotes((prev) => prev.map((n) => n.id === id ? { ...n, completed: !n.completed } : n));
   };
 
   const renderMarkdown = (text: string) => {
@@ -83,12 +88,34 @@ const NotesSidebar: React.FC<NotesSidebarProps> = ({
 
       {savedNotes.length > 0 && (
         <div className="notes__saved-list">
-          <h4 className="notes__saved-title">Saved Notes</h4>
+          <div className="notes__stats-container">
+            <h4 className="notes__saved-title">Saved Notes</h4>
+            <div className="notes__progress-wrapper">
+              <div className="notes__progress-bar">
+                <div 
+                  className="notes__progress-fill" 
+                  style={{ width: `${Math.round((savedNotes.filter(n => n.completed).length / savedNotes.length) * 100)}%` }} 
+                />
+              </div>
+              <span className="notes__progress-label">
+                {Math.round((savedNotes.filter(n => n.completed).length / savedNotes.length) * 100)}% Done
+              </span>
+            </div>
+          </div>
           <div className="notes__scroll-area">
             {savedNotes.map((note) => (
-              <div key={note.id} className="saved-note">
+              <div key={note.id} className={`saved-note${note.completed ? ' saved-note--completed' : ''}`}>
                 <div className="saved-note__header">
-                  <span className="saved-note__date">{note.dateLabel}</span>
+                  <div className="saved-note__status">
+                    <button
+                      className={`saved-note__toggle${note.completed ? ' saved-note__toggle--active' : ''}`}
+                      onClick={() => handleToggleComplete(note.id)}
+                      title={note.completed ? 'Mark as Pending' : 'Mark as Completed'}
+                    >
+                      {note.completed ? <CheckCircle2 size={14} /> : <Circle size={14} />}
+                    </button>
+                    <span className="saved-note__date">{note.dateLabel}</span>
+                  </div>
                   <button
                     className="saved-note__delete"
                     onClick={() => handleDeleteNote(note.id)}

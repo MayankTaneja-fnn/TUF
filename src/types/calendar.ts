@@ -33,6 +33,7 @@ export interface SavedNote {
   text: string;
   dateLabel: string;
   createdAt: number;
+  completed?: boolean;
 }
 
 export interface CountryOption {
