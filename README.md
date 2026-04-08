@@ -38,7 +38,6 @@ Elevate your schedule with a versatile tagging system designed for visual tracki
 - **Contextual Organization:** Save detailed notes that are automatically stamped with your currently selected date range (e.g., "April 12 - April 15").
 - **✅ Completion Tracking:** Mark your study goals as **Completed** or **Pending** with a single click. Completed notes are visually distinguished with a strikethrough and dimmed effect.
 - **📊 Visual Progress Tracking:** A real-time progress bar shows the percentage of completed tasks, helping you stay motivated and on track with your DSA goals.
-- **Markdown Support:** Write notes using standard Markdown (`**bold**`, `*italic*`, `- bullets`) for structured study plans.
 - **Local Storage Persistence:** All tags, note statuses, and country settings are saved locally in real-time—your data is safe even after a refresh.
 - **Shareable URL State:** The URL hash updates with your selected range, allowing you to bookmark or share specific views (e.g., `#?start=2024-10-12&end=2024-10-15`).
 
