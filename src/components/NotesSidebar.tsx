@@ -35,7 +35,7 @@ const NotesSidebar: React.FC<NotesSidebarProps> = ({
       createdAt: Date.now(),
     };
     setSavedNotes((prev) => [newNote, ...prev]);
-    setNotes(''); // Clear drafting area
+    setNotes(''); 
   };
 
   const handleDeleteNote = (id: string) => {

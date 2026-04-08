@@ -190,7 +190,7 @@ const WallCalendar = () => {
     } else return;
 
     let nextDate = focusedDate;
-    if (key === 'ArrowRight') nextDate = addMonths(focusedDate, 0 /* trick to clone */), nextDate.setDate(nextDate.getDate() + 1);
+    if (key === 'ArrowRight') nextDate = addMonths(focusedDate, 0 ), nextDate.setDate(nextDate.getDate() + 1);
     else if (key === 'ArrowLeft') nextDate = addMonths(focusedDate, 0), nextDate.setDate(nextDate.getDate() - 1);
     else if (key === 'ArrowDown') nextDate = addMonths(focusedDate, 0), nextDate.setDate(nextDate.getDate() + 7);
     else if (key === 'ArrowUp') nextDate = addMonths(focusedDate, 0), nextDate.setDate(nextDate.getDate() - 7);
